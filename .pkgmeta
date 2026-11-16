@@ -1,0 +1,19 @@
+package-as: AggeStealthBar
+enable-nolib-creation: no
+tools-used:
+    - libstub
+    - callbackhandler
+    - libdatabroker-1-1
+    - libdbicon-1-0
+move-folders:
+    AggeStealthBar/AggeStealthBar: AggeStealthBar
+ignore:
+    - assets
+    - docs
+    - tests
+    - scripts
+    - .github
+    - .gitignore
+manual-changelog:
+    filename: CHANGELOG.md
+    markup-type: markdown

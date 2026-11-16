@@ -1,0 +1,16 @@
+## Interface: 16001
+## Title: AggeStealthBar
+## Notes: Native Blizzard stealth and prowl action-bar paging for WoW Forever.
+## Author: Agge
+## Version: 0.1.0
+## IconTexture: Interface\AddOns\AggeStealthBar\Media\Icon
+## SavedVariablesPerCharacter: AggeStealthBarDB
+## OptionalDeps: Blizzard_ActionBar, Blizzard_ActionBarController
+
+Libs\LibStub\LibStub.lua
+Libs\CallbackHandler-1.0\CallbackHandler-1.0.lua
+Libs\LibDataBroker-1.1\LibDataBroker-1.1.lua
+Libs\LibDBIcon-1.0\LibDBIcon-1.0.lua
+Core.lua
+Options.lua
+Minimap.lua
