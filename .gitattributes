@@ -1,0 +1,11 @@
+* text=auto
+*.lua text eol=lf
+*.toc text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.ps1 text eol=lf
+*.py text eol=lf
+*.png binary
+*.tga binary
+# Preserve upstream library source formatting without local whitespace lint.
+AggeStealthBar/Libs/** -whitespace
