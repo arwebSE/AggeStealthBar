@@ -12,9 +12,9 @@ Native stealth and prowl action-bar paging for **WoW Forever**.
 
 Type **`/asb`** or open **Options → AddOns → AggeStealthBar** for settings. Click the minimap button to toggle the settings window.
 
-For **Forever 1.60.1** only. **0.1.5 is a test build, pending full in-game verification.** Use Blizzard's keyboard/mouse action bars and one main-bar paging addon at a time. Gamepad bars and third-party replacement bars are outside this version's scope.
+For **Forever 1.60.1** only. **0.1.6 is a test build, pending full in-game verification.** Use Blizzard's keyboard/mouse action bars and one main-bar paging addon at a time. Gamepad bars and third-party replacement bars are outside this version's scope.
 
-Enter Stealth, or Cat Form and Prowl, and drag spells onto the main bar. Rogue uses page **7** (slots 73–84); druid uses page **8** (slots 85–96). These are existing WoW action slots, not separate addon storage. Existing actions on those pages remain in place. Leaving stealth restores the native parent page; manually selected pages and other forms retain native paging. Blizzard saves the spells; the addon saves only preferences per character. Disabling the addon restores parent-page inheritance without moving any spells.
+Enter Stealth, or Cat Form and Prowl, and drag spells onto the main bar. Both rogue Stealth and druid Prowl use page **8** (slots 85–96). Rogue users upgrading from 0.1.5 or earlier need to arrange page 8 once; their old page-7 spells are left untouched. These are existing WoW action slots, not separate addon storage. Existing actions on those pages remain in place. Leaving stealth restores the native parent page; manually selected pages and other forms retain native paging. Blizzard saves the spells; the addon saves only preferences per character. Disabling the addon restores parent-page inheritance without moving any spells.
 
 Interact with it as you normally would with a regular action bar. AggeStealthBar leaves Blizzard's click and drag handlers and the game-wide action-button key-down setting untouched.
 

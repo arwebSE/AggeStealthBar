@@ -82,14 +82,18 @@ Page(1)
 if class == 'DRUID' then assert(condition == '[stealth,form:2] 1; 0') end
 combat = true
 Stealth(true)
-Page(class == 'DRUID' and 8 or 7)
+Page(8)
 -- Stock parent changes must still refresh children while in stealth/combat.
 MainActionBar:SetAttribute('actionpage', 2)
 Page(2)
 MainActionBar:SetAttribute('actionpage', 12)
 Page(12)
 MainActionBar:SetAttribute('actionpage', class == 'DRUID' and 7 or 1)
-Page(class == 'DRUID' and 8 or 7)
+Page(8)
+-- A native rogue stealth-page update must not pull us back to page 7.
+MainActionBar:SetAttribute('actionpage', 7)
+Page(8)
+MainActionBar:SetAttribute('actionpage', class == 'DRUID' and 7 or 1)
 Stealth(false)
 Page(class == 'DRUID' and 7 or 1)
 -- Outside stealth there must be no private page to pin the previous form.
@@ -112,7 +116,7 @@ MainActionBar:SetAttribute('actionpage', 1)
 ExplicitPage(nil)
 A.SetOption('enabled', true)
 Stealth(true)
-Page(class == 'DRUID' and 8 or 7)
+Page(8)
 if class == 'DRUID' then
     forms = {768, 5487}
     Fire('UPDATE_SHAPESHIFT_FORMS')

@@ -19,9 +19,9 @@ local refresh = [[
     local active = self:GetAttribute("enabled")
     local stealth = self:GetAttribute("state-stealth") == 1
     local target = self:GetAttribute("stealthpage")
-    local catpage = self:GetAttribute("catpage")
+    local bonuspage = self:GetAttribute("bonuspage")
     local selected = nil
-    if active and stealth and (page == 1 or page == catpage) then
+    if active and stealth and (page == 1 or page == bonuspage) then
         selected = target
     end
     for i = 1, 12 do
@@ -58,8 +58,9 @@ local function Install()
     for index = 1, 12 do
         controller:SetFrameRef("button" .. index, _G["ActionButton" .. index])
     end
-    controller:SetAttribute("stealthpage", class == "DRUID" and 8 or 7)
-    controller:SetAttribute("catpage", class == "DRUID" and 7 or 1)
+    controller:SetAttribute("stealthpage", 8)
+    -- Native rogue Stealth and druid Cat Form both use bonus page 7.
+    controller:SetAttribute("bonuspage", 7)
     controller:SetAttribute("refresh", refresh)
     controller:SetAttribute("_onstate-stealth", [[self:RunAttribute("refresh")]])
     -- Reconsider the stealth override when the native page changes. Outside
@@ -68,7 +69,7 @@ local function Install()
         if name == "actionpage" then control:RunAttribute("refresh") end
     ]])
     A.controller = controller
-    if A.SetupTransitions then A.SetupTransitions(class == "DRUID" and 8 or 7) end
+    if A.SetupTransitions then A.SetupTransitions(8) end
     return true
 end
 

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.6 — test build
+
+- Use page 8 (slots 85–96) for both rogue Stealth and druid Prowl.
+- Handle native rogue page-7 updates without losing the page-8 override. Leave all existing action slots untouched; rogue users switching from earlier builds must arrange page 8 once.
+
 ## 0.1.5 — test build
 
 - Keep the startup message and smooth transitions always on; remove their settings and obsolete saved preferences.
