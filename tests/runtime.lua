@@ -68,8 +68,14 @@ if class == 'MAGE' or conflict then
     assert(not A.controller)
     return
 end
-local function Page(page)
+local function ExplicitPage(page)
     for i = 1, 12 do assert(_G['ActionButton' .. i]:GetAttribute('actionpage') == page, 'page mismatch') end
+end
+local function Page(page)
+    for i = 1, 12 do
+        local own = _G['ActionButton' .. i]:GetAttribute('actionpage')
+        assert((own or MainActionBar:GetAttribute('actionpage')) == page, 'effective page mismatch')
+    end
 end
 local function Stealth(value) A.controller:SetAttribute('state-stealth', value and 1 or 0) end
 Page(1)
@@ -86,13 +92,24 @@ MainActionBar:SetAttribute('actionpage', class == 'DRUID' and 7 or 1)
 Page(class == 'DRUID' and 8 or 7)
 Stealth(false)
 Page(class == 'DRUID' and 7 or 1)
+-- Outside stealth there must be no private page to pin the previous form.
+-- Native caster/bear/cat changes must work even without a wrapper callback.
+ExplicitPage(nil)
+local wrapper = MainActionBar.scripts.OnAttributeChanged
+MainActionBar.scripts.OnAttributeChanged = nil
+MainActionBar:SetAttribute('actionpage', 1)
+Page(1)
+MainActionBar:SetAttribute('actionpage', 9)
+Page(9)
+MainActionBar:SetAttribute('actionpage', 1)
+MainActionBar.scripts.OnAttributeChanged = wrapper
 A.SetOption('enabled', false)
 assert(A.controller:GetAttribute('enabled') == true)
 combat = false
 Fire('PLAYER_REGEN_ENABLED')
-Page(nil)
+ExplicitPage(nil)
 MainActionBar:SetAttribute('actionpage', 1)
-Page(nil)
+ExplicitPage(nil)
 A.SetOption('enabled', true)
 Stealth(true)
 Page(class == 'DRUID' and 8 or 7)

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.3 — test build
+
+- Clear the button page override outside stealth so Cat Form's page cannot remain pinned over the native caster bar.
+- Keep normal/form/manual paging inherited from Blizzard; adapt transition effects to clearing the stealth override.
+- Add regression coverage for native caster/bear page changes without an addon wrapper callback.
+
 ## 0.1.2 — test build
 
 - Add a synchronized 160 ms shadow fade and subtle 240 ms violet edge glow when entering or leaving the stealth page.

@@ -20,17 +20,13 @@ local refresh = [[
     local stealth = self:GetAttribute("state-stealth") == 1
     local target = self:GetAttribute("stealthpage")
     local catpage = self:GetAttribute("catpage")
-    local selected = page
-    if stealth and (page == 1 or page == catpage) then
+    local selected = nil
+    if active and stealth and (page == 1 or page == catpage) then
         selected = target
     end
     for i = 1, 12 do
         local button = self:GetFrameRef("button" .. i)
-        if active then
-            button:SetAttribute("actionpage", selected)
-        else
-            button:SetAttribute("actionpage", nil)
-        end
+        button:SetAttribute("actionpage", selected)
     end
 ]]
 
@@ -66,8 +62,8 @@ local function Install()
     controller:SetAttribute("catpage", class == "DRUID" and 7 or 1)
     controller:SetAttribute("refresh", refresh)
     controller:SetAttribute("_onstate-stealth", [[self:RunAttribute("refresh")]])
-    -- Mirror every native page change, including vehicles/possess and manual
-    -- paging. The parent and its stock controller remain Blizzard-owned.
+    -- Reconsider the stealth override when the native page changes. Outside
+    -- stealth leave actionpage unset so native form changes cannot get pinned.
     controller:WrapScript(MainActionBar, "OnAttributeChanged", [[return nil, true]], [[
         if name == "actionpage" then control:RunAttribute("refresh") end
     ]])

@@ -1,5 +1,6 @@
 local A, textures = {}, {}
 AggeStealthBarDB = {enabled = true, smoothTransitions = true}
+MainActionBar = {GetAttribute = function() return 7 end}
 local function Texture()
     local texture = {alpha = 1}
     function texture:SetAlpha(value) self.alpha = value end
@@ -44,7 +45,7 @@ button:Page(8)
 assert(textures[1].group.plays == 1 and button.page == 8, 'effect must not delay paging')
 button:Page(8)
 assert(textures[1].group.plays == 1, 'same-page refresh must not restart effects')
-button:Page(7)
+button:Page(nil)
 assert(textures[1].group.plays == 2, 'leaving stealth also animates')
 AggeStealthBarDB.smoothTransitions = false
 A.UpdateTransitions()

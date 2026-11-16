@@ -42,9 +42,11 @@ function A.SetupTransitions(stealthPage)
             glow:SetPoint("BOTTOMRIGHT", icon, "BOTTOMRIGHT", 9, -9)
             local effect = {shadow = Fade(shadow, 0.32, 0.16), glow = Fade(glow, 0.38, 0.24)}
             effects[#effects + 1] = effect
-            local previous = button:GetAttribute("actionpage")
+            local previous = button:GetAttribute("actionpage") or MainActionBar:GetAttribute("actionpage")
             button:HookScript("OnAttributeChanged", function(_, name, page)
                 if name ~= "actionpage" then return end
+                -- Clearing our override restores the inherited native page.
+                page = page or MainActionBar:GetAttribute("actionpage")
                 if issecretvalue and issecretvalue(page) then previous = nil; return end
                 local old = previous
                 previous = page
