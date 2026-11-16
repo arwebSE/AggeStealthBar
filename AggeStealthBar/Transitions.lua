@@ -40,7 +40,7 @@ function A.SetupTransitions(stealthPage)
             glow:SetVertexColor(0.65, 0.38, 1)
             glow:SetPoint("TOPLEFT", icon, "TOPLEFT", -9, 9)
             glow:SetPoint("BOTTOMRIGHT", icon, "BOTTOMRIGHT", 9, -9)
-            local effect = {shadow = Fade(shadow, 0.32, 0.16), glow = Fade(glow, 0.38, 0.24)}
+            local effect = {shadow = Fade(shadow, 0.24, 0.06), glow = Fade(glow, 0.30, 0.10)}
             effects[#effects + 1] = effect
             local previous = button:GetAttribute("actionpage") or MainActionBar:GetAttribute("actionpage")
             button:HookScript("OnAttributeChanged", function(_, name, page)

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.4 — test build
+
+- Make transitions snappier: shorten the shadow fade from 160 to 60 ms and edge glow from 240 to 100 ms, with lighter overlays so the new icons read sooner.
+
 ## 0.1.3 — test build
 
 - Clear the button page override outside stealth so Cat Form's page cannot remain pinned over the native caster bar.
