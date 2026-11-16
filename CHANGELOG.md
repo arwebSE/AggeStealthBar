@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.5 — test build
+
+- Keep the startup message and smooth transitions always on; remove their settings and obsolete saved preferences.
+- Compact the settings window, simplify interaction instructions, and show status text only when something needs attention.
+- Preserve existing rogue page 7 and druid page 8 spell layouts.
+
 ## 0.1.4 — test build
 
 - Make transitions snappier: shorten the shadow fade from 160 to 60 ms and edge glow from 240 to 100 ms, with lighter overlays so the new icons read sooner.

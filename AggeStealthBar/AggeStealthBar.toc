@@ -2,7 +2,7 @@
 ## Title: AggeStealthBar
 ## Notes: Native Blizzard stealth and prowl action-bar paging for WoW Forever.
 ## Author: Agge
-## Version: 0.1.4
+## Version: 0.1.5
 ## IconTexture: Interface\AddOns\AggeStealthBar\Media\Icon
 ## SavedVariablesPerCharacter: AggeStealthBarDB
 ## OptionalDeps: Blizzard_ActionBar, Blizzard_ActionBarController

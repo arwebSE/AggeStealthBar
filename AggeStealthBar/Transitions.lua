@@ -18,7 +18,7 @@ local function Fade(texture, opacity, duration)
 end
 
 function A.UpdateTransitions()
-    if AggeStealthBarDB.enabled and AggeStealthBarDB.smoothTransitions then return end
+    if AggeStealthBarDB.enabled then return end
     for _, effect in ipairs(effects) do
         effect.shadow:Stop()
         effect.glow:Stop()
@@ -52,7 +52,7 @@ function A.SetupTransitions(stealthPage)
                 previous = page
                 if not old or not page or old == page then return end
                 if old ~= stealthPage and page ~= stealthPage then return end
-                if not AggeStealthBarDB.enabled or not AggeStealthBarDB.smoothTransitions then return end
+                if not AggeStealthBarDB.enabled then return end
                 effect.shadow:Stop()
                 effect.glow:Stop()
                 effect.shadow:Play()

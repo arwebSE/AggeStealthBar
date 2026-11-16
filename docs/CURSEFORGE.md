@@ -7,7 +7,7 @@ AggeStealthBar uses Blizzard's actual main action-bar buttons, artwork, keybindi
 - Rogue and druid support.
 - Native Blizzard click and drag handlers, including your usual pickup modifier (normally Shift).
 - Secure paging designed for combat; settings changed during combat apply afterward.
-- Blizzard-style settings with optional startup message and LibDBIcon minimap button.
+- Blizzard-style settings with a startup message, smooth transitions and an optional LibDBIcon minimap button.
 - Per-character preferences. No telemetry or network requests.
 
 Open settings with **`/asb`**, the minimap icon, or **Options → AddOns → AggeStealthBar**.

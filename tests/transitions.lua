@@ -1,5 +1,6 @@
 local A, textures = {}, {}
-AggeStealthBarDB = {enabled = true, smoothTransitions = true}
+-- Removed preferences must never suppress transitions, even in an old save.
+AggeStealthBarDB = {enabled = true, smoothTransitions = false}
 MainActionBar = {GetAttribute = function() return 7 end}
 local function Texture()
     local texture = {alpha = 1}
@@ -47,12 +48,12 @@ button:Page(8)
 assert(textures[1].group.plays == 1, 'same-page refresh must not restart effects')
 button:Page(nil)
 assert(textures[1].group.plays == 2, 'leaving stealth also animates')
-AggeStealthBarDB.smoothTransitions = false
+AggeStealthBarDB.enabled = false
 A.UpdateTransitions()
 for _, texture in ipairs(textures) do assert(not texture.group.playing and texture.alpha == 0) end
 button:Page(8)
 assert(textures[1].group.plays == 2, 'disabled transitions must not play')
-AggeStealthBarDB.smoothTransitions = true
+AggeStealthBarDB.enabled = true
 issecretvalue = function(value) return value == 'secret' end
 button:Page('secret')
 button:Page(7)

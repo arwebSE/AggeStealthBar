@@ -14,7 +14,7 @@ end
 function A.RefreshOptions()
     if not AggeStealthBarDB then return end
     for _, control in ipairs(controls) do control:SetChecked(AggeStealthBarDB[control.key]) end
-    for _, label in ipairs(statuses) do label:SetText(A.status or "Waiting for the main action bar.") end
+    for _, label in ipairs(statuses) do label:SetText(A.status or "") end
 end
 
 local function Contents(parent)
@@ -23,8 +23,6 @@ local function Contents(parent)
     local options = {
         {"enabled", "Enable stealth / prowl bar"},
         {"showMinimap", "Show minimap button"},
-        {"startupMessage", "Show startup message"},
-        {"smoothTransitions", "Smooth stealth transitions"},
     }
     for index, option in ipairs(options) do
         local check = CreateFrame("CheckButton", nil, parent, "InterfaceOptionsCheckButtonTemplate")
@@ -34,15 +32,15 @@ local function Contents(parent)
         check:SetScript("OnClick", function(self) A.SetOption(self.key, self:GetChecked() == true) end)
         controls[#controls + 1] = check
     end
-    Text(parent, "Enter Stealth (rogue) or Cat Form + Prowl (druid), then place your spells on the main bar. Your layout is saved by WoW.", 0, -210)
-    Text(parent, "Uses rogue page 7 / druid page 8. Manual pages and other forms keep their native behavior. Hold your usual pickup modifier (normally Shift) to move locked actions.", 0, -262)
-    statuses[#statuses + 1] = Text(parent, "", 0, -326, "GameFontNormal")
+    Text(parent, "Enter Stealth (rogue) or Cat Form + Prowl (druid), then place your spells on the main bar. Your layout is saved by WoW.", 0, -145)
+    Text(parent, "Interact with it as you normally would with a regular action bar.", 0, -201)
+    statuses[#statuses + 1] = Text(parent, "", 0, -245, "GameFontNormal")
     local reset = CreateFrame("Button", nil, parent, "UIPanelButtonTemplate")
     reset:SetSize(140, 26)
-    reset:SetPoint("TOPLEFT", 0, -360)
+    reset:SetPoint("TOPLEFT", 0, -286)
     reset:SetText("Reset settings")
     reset:SetScript("OnClick", A.Reset)
-    Text(parent, "Resets preferences only. Your spells stay in their slots.", 0, -396, "GameFontHighlightSmall")
+    Text(parent, "Resets preferences only. Your spells stay in their slots.", 0, -322, "GameFontHighlightSmall")
     parent:SetScript("OnShow", A.RefreshOptions)
     A.RefreshOptions()
 end
@@ -55,7 +53,7 @@ function A.ToggleOptions()
     window.TitleContainer.TitleText:SetText(ADDON)
     window.Bg:SetTexture("Interface\\FrameGeneral\\UI-Background-Rock")
     window.Bg:SetVertexColor(0.65, 0.65, 0.65)
-    window:SetSize(520, 510)
+    window:SetSize(520, 430)
     window:SetPoint("CENTER")
     window:SetFrameStrata("DIALOG")
     window:SetToplevel(true)
@@ -73,7 +71,7 @@ function A.ToggleOptions()
     window:SetScript("OnHide", function() window:StopMovingOrSizing() end)
     local content = CreateFrame("Frame", nil, window)
     content:SetPoint("TOPLEFT", 28, -50)
-    content:SetSize(460, 430)
+    content:SetSize(460, 350)
     Contents(content)
     UISpecialFrames[#UISpecialFrames + 1] = "AggeStealthBarSettings"
 end
@@ -84,7 +82,7 @@ function A.RegisterOptions()
     canvas:Hide()
     local content = CreateFrame("Frame", nil, canvas)
     content:SetPoint("TOPLEFT", 20, -20)
-    content:SetSize(460, 430)
+    content:SetSize(460, 350)
     Contents(content)
     category = Settings.RegisterCanvasLayoutCategory(canvas, ADDON)
     Settings.RegisterAddOnCategory(category)

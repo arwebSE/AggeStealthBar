@@ -1,7 +1,7 @@
 local ADDON, A = ...
 local _, class = UnitClass("player")
 local supported = class == "ROGUE" or class == "DRUID"
-local defaults = { enabled = true, showMinimap = true, startupMessage = true, smoothTransitions = true }
+local defaults = { enabled = true, showMinimap = true }
 local controller, pending, initialized
 A.version = C_AddOns.GetAddOnMetadata(ADDON, "Version") or "dev"
 A.supported = supported
@@ -80,12 +80,12 @@ function A.Apply()
         return
     end
     pending = nil
+    A.status = nil
     if not supported then
         A.status = "Stealth paging is available for rogues and druids."
         return
     end
     if not controller and not AggeStealthBarDB.enabled then
-        A.status = "Disabled. Blizzard controls the main bar."
         return
     end
     if not Install() then
@@ -95,9 +95,6 @@ function A.Apply()
     controller:SetAttribute("enabled", AggeStealthBarDB.enabled)
     RegisterStateDriver(controller, "stealth", StealthCondition())
     controller:Execute([[self:RunAttribute("refresh")]])
-    A.status = AggeStealthBarDB.enabled
-        and "Enabled. Blizzard buttons, artwork and controls are preserved."
-        or "Disabled. Blizzard controls the main bar."
 end
 
 function A.SetOption(key, value)
@@ -123,6 +120,8 @@ for _, event in ipairs({"ADDON_LOADED", "PLAYER_LOGIN", "PLAYER_ENTERING_WORLD",
 events:SetScript("OnEvent", function(_, event, name)
     if event == "ADDON_LOADED" and name == ADDON then
         if type(AggeStealthBarDB) ~= "table" then AggeStealthBarDB = {} end
+        AggeStealthBarDB.startupMessage = nil
+        AggeStealthBarDB.smoothTransitions = nil
         for key, value in pairs(defaults) do
             if type(AggeStealthBarDB[key]) ~= "boolean" then AggeStealthBarDB[key] = value end
         end
@@ -137,7 +136,5 @@ events:SetScript("OnEvent", function(_, event, name)
     if event ~= "PLAYER_LOGIN" then return end
     if A.RegisterOptions then A.RegisterOptions() end
     if A.UpdateMinimap then A.UpdateMinimap() end
-    if AggeStealthBarDB.startupMessage then
-        A.Print("v" .. A.version .. " loaded. /asb for settings.")
-    end
+    A.Print("v" .. A.version .. " loaded. /asb for settings.")
 end)
