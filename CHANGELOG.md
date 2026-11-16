@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1
+
+- Simplify the icon's gold frame lighting: a satin finish with at most one restrained highlight per side and no scattered white glints.
+
 ## 1.0.0
 
 First public release for **WoW Forever 1.60.1**.
