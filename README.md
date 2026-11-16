@@ -8,10 +8,11 @@ Native stealth and prowl action-bar paging for **WoW Forever**.
 - Uses the actual Blizzard main-bar buttons and artwork, with their native clicks, pickup modifier, keybindings, tooltips and cooldowns.
 - Secure paging designed to work in combat; preferences changed during combat apply afterward.
 - Blizzard-style settings, optional minimap button and startup message, matching AggeHealBot and AggeMinimap.
+- Optional smooth stealth transitions: a brief shadow fade and violet edge glow, with immediate action switching.
 
 Type **`/asb`** or open **Options → AddOns → AggeStealthBar** for settings. Click the minimap button to toggle the settings window.
 
-For **Forever 1.60.1** only. **0.1.1 is a test build, pending in-game verification.** Use Blizzard's keyboard/mouse action bars and one main-bar paging addon at a time. Gamepad bars and third-party replacement bars are outside this version's scope.
+For **Forever 1.60.1** only. **0.1.2 is a test build, pending full in-game verification.** Use Blizzard's keyboard/mouse action bars and one main-bar paging addon at a time. Gamepad bars and third-party replacement bars are outside this version's scope.
 
 Enter Stealth, or Cat Form and Prowl, and drag spells onto the main bar. Rogue uses page **7** (slots 73–84); druid uses page **8** (slots 85–96). These are existing WoW action slots, not separate addon storage. Existing actions on those pages remain in place. Leaving stealth restores the native parent page; manually selected pages and other forms retain native paging. Blizzard saves the spells; the addon saves only preferences per character. Disabling the addon restores parent-page inheritance without moving any spells.
 

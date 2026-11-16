@@ -24,6 +24,7 @@ local function Contents(parent)
         {"enabled", "Enable stealth / prowl bar"},
         {"showMinimap", "Show minimap button"},
         {"startupMessage", "Show startup message"},
+        {"smoothTransitions", "Smooth stealth transitions"},
     }
     for index, option in ipairs(options) do
         local check = CreateFrame("CheckButton", nil, parent, "InterfaceOptionsCheckButtonTemplate")
@@ -33,9 +34,9 @@ local function Contents(parent)
         check:SetScript("OnClick", function(self) A.SetOption(self.key, self:GetChecked() == true) end)
         controls[#controls + 1] = check
     end
-    Text(parent, "Enter Stealth (rogue) or Cat Form + Prowl (druid), then place your spells on the main bar. Your layout is saved by WoW.", 0, -182)
-    Text(parent, "Uses rogue page 7 / druid page 8. Manual pages and other forms keep their native behavior. Hold your usual pickup modifier (normally Shift) to move locked actions.", 0, -238)
-    statuses[#statuses + 1] = Text(parent, "", 0, -308, "GameFontNormal")
+    Text(parent, "Enter Stealth (rogue) or Cat Form + Prowl (druid), then place your spells on the main bar. Your layout is saved by WoW.", 0, -210)
+    Text(parent, "Uses rogue page 7 / druid page 8. Manual pages and other forms keep their native behavior. Hold your usual pickup modifier (normally Shift) to move locked actions.", 0, -262)
+    statuses[#statuses + 1] = Text(parent, "", 0, -326, "GameFontNormal")
     local reset = CreateFrame("Button", nil, parent, "UIPanelButtonTemplate")
     reset:SetSize(140, 26)
     reset:SetPoint("TOPLEFT", 0, -360)

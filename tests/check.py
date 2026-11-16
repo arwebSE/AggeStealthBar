@@ -13,6 +13,8 @@ for cls, conflict in [('ROGUE', False), ('DRUID', False), ('MAGE', False), ('ROG
     runtime = LuaRuntime()
     runtime.execute(Path('tests/runtime.lua').read_text(), cls, conflict)
     print(f'PASS: {cls}, conflict={conflict}')
+LuaRuntime().execute(Path('tests/transitions.lua').read_text())
+print('PASS: transition lifecycle, immediate paging, toggles and duplicate suppression')
 toc = Path('AggeStealthBar/AggeStealthBar.toc').read_text()
 for line in toc.splitlines():
     if line and not line.startswith('#'):

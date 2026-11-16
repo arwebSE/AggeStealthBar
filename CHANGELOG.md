@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.2 — test build
+
+- Add a synchronized 160 ms shadow fade and subtle 240 ms violet edge glow when entering or leaving the stealth page.
+- Add a default-on Smooth stealth transitions setting. Effects touch only added decorative textures; action paging stays immediate.
+
 ## 0.1.1 — test build
 
 - Fix stealth detection: Blizzard converts numeric state-driver results to numbers, so compare with numeric `1`.

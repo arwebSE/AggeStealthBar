@@ -1,7 +1,7 @@
 local ADDON, A = ...
 local _, class = UnitClass("player")
 local supported = class == "ROGUE" or class == "DRUID"
-local defaults = { enabled = true, showMinimap = true, startupMessage = true }
+local defaults = { enabled = true, showMinimap = true, startupMessage = true, smoothTransitions = true }
 local controller, pending, initialized
 A.version = C_AddOns.GetAddOnMetadata(ADDON, "Version") or "dev"
 A.supported = supported
@@ -72,6 +72,7 @@ local function Install()
         if name == "actionpage" then control:RunAttribute("refresh") end
     ]])
     A.controller = controller
+    if A.SetupTransitions then A.SetupTransitions(class == "DRUID" and 8 or 7) end
     return true
 end
 
@@ -108,6 +109,7 @@ function A.SetOption(key, value)
     AggeStealthBarDB[key] = value
     A.Apply()
     if A.UpdateMinimap then A.UpdateMinimap() end
+    if A.UpdateTransitions then A.UpdateTransitions() end
     if A.RefreshOptions then A.RefreshOptions() end
 end
 
@@ -115,6 +117,7 @@ function A.Reset()
     for key, value in pairs(defaults) do AggeStealthBarDB[key] = value end
     A.Apply()
     if A.UpdateMinimap then A.UpdateMinimap() end
+    if A.UpdateTransitions then A.UpdateTransitions() end
     if A.RefreshOptions then A.RefreshOptions() end
 end
 

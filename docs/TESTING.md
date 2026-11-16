@@ -10,6 +10,7 @@ Run on Forever 1.60.1 with script errors enabled (`/console scriptErrors 1`). St
 - Disable/re-enable outside combat and during combat. Changes must defer until combat ends and restore the current native page. Reset preferences must preserve all action slots.
 - Reload/login in stealth and in combat. Watch for blocked-action/taint errors. The simulation cannot validate the client's restricted execution environment.
 - Open `/asb`, Escape/close it, open Options → AddOns, toggle the minimap button and startup message, drag the minimap icon and reload. Confirm per-character persistence and readability at different UI scales.
+- With Smooth stealth transitions enabled, enter/leave stealth repeatedly, including in combat. Confirm the synchronized shadow/glow finishes within 240 ms, icons stay readable, buttons remain immediately usable, and ordinary form/page changes do not flash. Disable the setting mid-effect and confirm every overlay clears. Recheck with different bar sizes, orientations and UI scales.
 - Disable competing bar addons. Initial ownership checks are best effort; addons loading later can still conflict. Check unsupported classes keep their stock bar.
 
 Record client build, class, result and any error text before promoting the test build.
