@@ -17,7 +17,7 @@ local refresh = [[
     local bar = self:GetFrameRef("bar")
     local page = bar:GetAttribute("actionpage") or 1
     local active = self:GetAttribute("enabled")
-    local stealth = self:GetAttribute("state-stealth") == "1"
+    local stealth = self:GetAttribute("state-stealth") == 1
     local target = self:GetAttribute("stealthpage")
     local catpage = self:GetAttribute("catpage")
     local selected = page

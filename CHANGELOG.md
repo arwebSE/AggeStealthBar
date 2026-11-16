@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1 — test build
+
+- Fix stealth detection: Blizzard converts numeric state-driver results to numbers, so compare with numeric `1`.
+- Correct the regression simulation to reproduce the client's state value type for rogue Stealth and druid Prowl.
+
 ## 0.1.0 — test build
 
 - Original secure paging for rogue Stealth and druid Cat Form + Prowl.

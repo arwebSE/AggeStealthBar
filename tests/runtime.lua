@@ -45,7 +45,8 @@ function GetShapeshiftFormInfo(index) return nil, nil, nil, forms[index] end
 function RegisterStateDriver(frame, state, rule)
     assert(not combat, 'insecure driver registration in combat')
     condition = rule
-    frame:SetAttribute('state-' .. state, '0')
+    -- Blizzard's resolveDriver converts numeric macro results with tonumber.
+    frame:SetAttribute('state-' .. state, 0)
 end
 C_AddOns = {GetAddOnMetadata = function() return 'test' end}
 forms = {5487, 768, 1066}
@@ -70,7 +71,7 @@ end
 local function Page(page)
     for i = 1, 12 do assert(_G['ActionButton' .. i]:GetAttribute('actionpage') == page, 'page mismatch') end
 end
-local function Stealth(value) A.controller:SetAttribute('state-stealth', value and '1' or '0') end
+local function Stealth(value) A.controller:SetAttribute('state-stealth', value and 1 or 0) end
 Page(1)
 if class == 'DRUID' then assert(condition == '[stealth,form:2] 1; 0') end
 combat = true
