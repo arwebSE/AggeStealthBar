@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.7 — test build
+
+- Refine the icon's gold bezel with even sides and matching corners.
+
 ## 0.1.6 — test build
 
 - Use page 8 (slots 85–96) for both rogue Stealth and druid Prowl.
