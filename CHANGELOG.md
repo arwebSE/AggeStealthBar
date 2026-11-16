@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.0
+
+First public release for **WoW Forever 1.60.1**.
+
+- Rogue Stealth and druid Cat Form + Prowl switch the native main bar to page 8 (slots 85–96).
+- Leaving stealth restores Blizzard's normal/form paging without pinning a previous form's bar.
+- Preserve Blizzard buttons, artwork, keybindings, tooltips, cooldowns and normal action dragging.
+- Fast shadow/violet-glow transitions, Blizzard-style settings, an optional LibDBIcon minimap launcher and per-character preferences.
+- Refined gold-framed icon, with no telemetry or network requests.
+
 ## 0.1.7 — test build
 
 - Refine the icon's gold bezel with even sides and matching corners.

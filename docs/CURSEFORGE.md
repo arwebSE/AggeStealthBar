@@ -1,19 +1,28 @@
 # AggeStealthBar
 
-Native stealth and prowl action-bar paging for **WoW Forever** — rogues and druids in one addon.
+A native-looking **rogue stealth bar and druid Prowl bar for WoW Forever**. AggeStealthBar restores main action-bar switching when you enter Stealth or Cat Form + Prowl, using Blizzard’s actual action buttons and artwork.
 
-AggeStealthBar uses Blizzard's actual main action-bar buttons, artwork, keybindings, tooltips and cooldown displays. Enter Stealth as a rogue, or Cat Form + Prowl as a druid, to access your stealth page. Leave stealth to return to the native page. Place your spells on the bar while stealthed; WoW saves their positions.
+## Features
 
-- Rogue and druid support.
-- Native Blizzard click and drag handlers, including your usual pickup modifier (normally Shift).
-- Secure paging designed for combat; settings changed during combat apply afterward.
-- Blizzard-style settings with a startup message, smooth transitions and an optional LibDBIcon minimap button.
-- Per-character preferences. No telemetry or network requests.
+- **Rogue Stealth and druid Prowl support** in one addon.
+- **Stock Blizzard appearance and controls:** native keybindings, tooltips, cooldowns, clicks and spell dragging.
+- **Secure combat paging**, with quick, subtle transitions.
+- Normal Cat Form, other forms and manual pages keep Blizzard’s native paging.
+- Blizzard-style settings, an optional minimap button and per-character preferences.
+- No telemetry or network requests.
 
-Open settings with **`/asb`**, the minimap icon, or **Options → AddOns → AggeStealthBar**.
+## Getting started
 
-**Forever 1.60.1 only.** Uses Blizzard's keyboard/mouse main bar. Use one main-bar paging addon at a time. Both classes use existing action page 8 (slots 85–96). Existing spells in those slots are preserved.
+Enter Stealth as a rogue, or Cat Form + Prowl as a druid, then place your spells on the main bar. Interact with it as you normally would with a regular action bar. Leaving stealth restores normal paging; WoW saves your spell layout.
 
-**Initial alpha:** Live testing is required for both classes, combat transitions and Shift-drag before stable release.
+Open settings with **`/asb`**, the minimap button, or **Options → AddOns → AggeStealthBar**.
 
-[Source and issues](https://github.com/arwebSE/AggeStealthBar) · [AggeHealBot](https://www.curseforge.com/wow/addons/aggehealbot) · [AggeMinimap](https://www.curseforge.com/wow/addons/aggeminimap)
+## Compatibility
+
+**WoW Forever 1.60.1 only.** Uses Blizzard’s keyboard/mouse main action bar. Both classes use **page 8 (slots 85–96)**. Existing spells in those slots are preserved. Use one main-bar paging addon at a time.
+
+## Links
+
+[Source on GitHub](https://github.com/arwebSE/AggeStealthBar) · [Report an issue](https://github.com/arwebSE/AggeStealthBar/issues)
+
+Also by Agge: [AggeHealBot — click healing and click casting](https://www.curseforge.com/wow/addons/aggehealbot) · [AggeMinimap — a clean square minimap](https://www.curseforge.com/wow/addons/aggeminimap)
